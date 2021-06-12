@@ -1,8 +1,130 @@
 'use strict';
 // Enter your code below:
 
+// *! ====================== test ==========================
+
+// Напиши класс Storage, который будет создавать объекты для управления складом товаров.
+// При вызове будет получать один аргумент - начальный массив товаров, и
+// записывать его в свойство items.
+
+// Добавь методы класса:
+
+class Storage {
+  constructor(items) {
+    this.items = items;
+  }
+  getItems() {
+    return this.items;
+  }
+  addItem(item) {
+    return this.items.push(item);
+  }
+  removeItem(item) {
+    for (let i = 0; i < this.items.length; i += 1) {
+      if (this.items[i] === item) {
+        return this.items.splice(i, 1);
+      }
+    }
+  }
+}
+
+// getItems() - возвращает массив текущих товаров
+// addItem(item) - получает новый товар и добавляет его к текущим
+// removeItem(item) - получет товар и, если он есть, удаляет его из текущих
+const storage = new Storage([
+  'Нанитоиды',
+  'Пролонгер',
+  'Железные жупи',
+  'Антигравитатор',
+]);
+
+const items = storage.getItems();
+console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
+
+storage.addItem('Дроид');
+console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
+
+storage.removeItem('Пролонгер');
+console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]
+
+// *? ==================== recursion ======================
+
+const arr = ['hello', [12, 34, ['some value', [777, ['finish']]]]];
+function getFlat(arr) {
+  const newArray = [];
+
+  for (let el of arr) {
+    if (!Array.isArray(el)) {
+      newArray.push(el);
+    } else {
+      return [...newArray, ...getFlat(el)];
+    }
+  }
+  return newArray;
+}
+
+console.log(getFlat(arr));
+
 // * ======================== 1 ===========================
-// * ======================== 1 ===========================
+
+// Task 3
+// Нужно перебрать объекты и вывести имя лучшего сотрудника
+// *решить в одну строку
+
+// * first way ------------------------------------------
+// function findBestEmployee(obj) {
+//   const max = Math.max(...Object.values(obj));
+//   for (let key in obj) {
+//     if (obj[key] === max) {
+//       return key;
+//     }
+//   }
+// }
+
+// * second way -----------------------------------------
+// function findBestEmployee(obj) {
+//   let maxValue = 0;
+//   let name;
+//   for (let key in obj) {
+//     if (obj[key] > maxValue) {
+//       maxValue = obj[key];
+//       name = key;
+//     }
+//   }
+//   return name;
+// }
+
+// * third way ------------------------------------------
+const findBestEmployee = (obj) =>
+  Object.entries(obj).sort((a, b) => b[1] - a[1])[0][0];
+
+/*
+ * Вызовы функции для проверки работоспособности твоей реализации.
+ */
+console.log(
+  findBestEmployee({
+    ann: 29,
+    david: 35,
+    helen: 1,
+    lorence: 99,
+  })
+); // lorence
+console.log(
+  findBestEmployee({
+    poly: 12,
+    mango: 17,
+    ajax: 4,
+  })
+); // mango
+console.log(
+  findBestEmployee({
+    lux: 147,
+    david: 21,
+    kiwi: 19,
+    chelsy: 38,
+  })
+); // lux
+
 // * ======================== 1 ===========================
 // * ======================== 1 ===========================
 // * ======================== 1 ===========================
