@@ -137,6 +137,65 @@ console.log('anyHardcorePlayers', anyHardcorePlayers);
 
 // *! ==================== reduce =========================
 
+// finding total of numbers from array:
+const total = numbers2.reduce((acc, number) => acc + number, 0);
+console.log(total);
+
+// finding total of salaries:
+const salary = {
+  mango: 100,
+  poly: 800,
+  ajax: 380,
+};
+
+const totalSalary = Object.values(salary).reduce(
+  (total, value) => total + value,
+  0
+);
+console.log(totalSalary);
+
+// counting total time played by gamers:
+const totalPlayed = players2.reduce(
+  (totalTime, player) => totalTime + player.timePlayed,
+  0
+);
+console.log(totalPlayed);
+
+// counting total product cart:
+const cart = [
+  { label: 'Apples', price: 100, quantity: 2 },
+  { label: 'Bananas', price: 120, quantity: 3 },
+  { label: 'Grapes', price: 70, quantity: 4 },
+];
+
+const totalAmount = cart.reduce(
+  (total, { price, quantity }) => total + price * quantity,
+  0
+);
+console.log(totalAmount);
+
+// getting all tags from tweets in one array:
+
+const tweets = [
+  { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+  { id: '001', likes: 2, tags: ['html', 'css'] },
+  { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+  { id: '003', likes: 8, tags: ['css', 'react'] },
+  { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+];
+
+const allTags = tweets.reduce((acc, tweet) => [...acc, ...tweet.tags], []);
+console.log(allTags);
+
+// getting statistic from tags in a new object with ternary:
+const tagsStats = allTags.reduce(
+  (acc, tag) => ({
+    ...acc,
+    [tag]: acc[tag] ? acc[tag] + 1 : 1,
+  }),
+  {}
+);
+console.log(tagsStats);
 // * ======================== 1 ===========================
 // * ======================== 1 ===========================
 // * ======================== 1 ===========================
