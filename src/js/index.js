@@ -196,15 +196,109 @@ const tagsStats = allTags.reduce(
   {}
 );
 console.log(tagsStats);
+
+// *! ====================== sort =========================
 // * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
+
+// function calculateTotalPrice(orderedItems) {
+//   let totalPrice = 0;
+
+//   orderedItems.forEach((element) => (totalPrice += element));
+
+//   return totalPrice;
+// }
+
+// * ======================== 2 ===========================
+
+// function filterArray(numbers, value) {
+//   const filteredNumbers = [];
+
+//   numbers.forEach((number) => {
+//     if (number > value) {
+//       return filteredNumbers.push(number);
+//     }
+//   });
+//   return filteredNumbers;
+// }
+
+// console.log(filterArray([1, 2, 3, 4, 5], 3));
+
+// * ======================== 3 ===========================
+
+// function getCommonElements(firstArray, secondArray) {
+//   const commonElements = [];
+
+//   firstArray.forEach((number) => {
+//     if (secondArray.includes(number)) {
+//       commonElements.push(number);
+//     }
+//   });
+
+//   return commonElements;
+// }
+
+// * ======================== 4 ===========================
+
+// const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
+
+// * ======================== 5 ===========================
+
+// const calculateTotalPrice = (quantity, pricePerItem) => quantity * pricePerItem;
+
+// * ======================== 6 ===========================
+
+// const calculateTotalPrice = (orderedItems) => {
+//   let totalPrice = 0;
+
+//   orderedItems.forEach((item) => (totalPrice += item));
+
+//   return totalPrice;
+// };
+
+// * ======================== 7 ===========================
+
+// const filterArray = (numbers, value) => {
+//   const filteredNumbers = [];
+
+//   numbers.forEach((number) => {
+//     if (number > value) {
+//       filteredNumbers.push(number);
+//     }
+//   });
+
+//   return filteredNumbers;
+// };
+
+// * ======================== 8 ===========================
+
+// const getCommonElements = (firstArray, secondArray) => {
+//   const commonElements = [];
+
+//   firstArray.forEach((element) => {
+//     if (secondArray.includes(element)) {
+//       commonElements.push(element);
+//     }
+//   });
+
+//   return commonElements;
+// };
+
+// * ======================== 9 ===========================
+
+function changeEven(numbers, value) {
+  const newArray = [];
+  numbers.forEach((number) => {
+    if (number % 2 === 0) {
+      number = number + value;
+      newArray.push(number);
+    } else if (number % 2 !== 0) {
+      newArray.push(number);
+    }
+  });
+  return newArray;
+}
+console.log(changeEven([1, 2, 3, 4, 5], 10));
+
 // * ======================== 1 ===========================
 // * ======================== 1 ===========================
 // * ======================== 1 ===========================
