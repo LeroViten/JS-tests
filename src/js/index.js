@@ -198,6 +198,84 @@ const tagsStats = allTags.reduce(
 console.log(tagsStats);
 
 // *! ====================== sort =========================
+
+// sorts elements primitively converting them to strings and
+// comparing by UNICODE table.Its destructive - use copy instead
+
+const ascendingNumbers = [...numbers2].sort((curEl, nextEl) => curEl - nextEl);
+const descendingNumbers = [...numbers2].sort((curEl, nextEl) => nextEl - curEl);
+console.log('ascendingNumbers', ascendingNumbers);
+console.log('descendingNumbers', descendingNumbers);
+
+// sorts array of objects comparing some key values in them
+
+const sortedByBestPlayers = [...players2].sort(
+  (curEl, nextEl) => nextEl.timePlayed - curEl.timePlayed
+);
+console.table(sortedByBestPlayers);
+
+const sortedByWorstPlayers = [...players2].sort(
+  (curEl, nextEl) => curEl.timePlayed - nextEl.timePlayed
+);
+console.table(sortedByWorstPlayers);
+
+// sorting by letters. You need to specify the index of a letter you're comparing
+
+const sortedByName = [...players2].sort((curEl, nextEl) => {
+  const result = curEl.name[0] > nextEl.name[0];
+
+  if (result) {
+    return 1;
+  }
+
+  if (!result) {
+    return -1;
+  }
+});
+console.log(sortedByName);
+
+// *! ====================== flat =========================
+
+// creates a new array (not destructive) with all sub-array elements
+// concatenated into it recursively up to the specified depth
+// default depth is 1.
+
+const array = [1, 2, [4, [5]], [6, [7, 8, [9]]]];
+console.log(array.flat());
+console.log(array.flat(3));
+
+// *! ==================== flatMap =========================
+
+// method returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level.It is identical to a map() followed by a flat() of depth 1, but slightly more efficient than calling those two methods separately.
+
+const tweetTags = tweets.flatMap((tweet) => tweet.tags);
+console.log(tweetTags);
+
+// *! =================== chaining ========================
+
+// you can call one method directly on a result of another method to reduce the code and get rid of temporary variables
+
+// const greaterThanTwo = numbers2.filter(num => num > 2);
+// const multiplyByThree = greaterThanTwo.map(num => num * 3);
+// const sorted = multiplyByThree.sort((a, b) => a - b);
+// console.log(sorted);
+
+// * same task with chaining:
+const sorted = numbers2
+  .filter((num) => num > 2)
+  .map((num) => num * 3)
+  .sort((a, b) => a - b);
+console.log(sorted);
+
+const onlineAndSorted = players2
+  .filter((player) => player.online)
+  .sort((curEl, nextEl) => curEl.timePlayed - nextEl.timePlayed);
+console.log(onlineAndSorted);
+
+// *! =============== libraries: LODASH ===================
+
+// http://lodash.com - library of methods (object with methods)
+//
 // * ======================== 1 ===========================
 
 // function calculateTotalPrice(orderedItems) {
@@ -285,34 +363,158 @@ console.log(tagsStats);
 
 // * ======================== 9 ===========================
 
-function changeEven(numbers, value) {
-  const newArray = [];
-  numbers.forEach((number) => {
-    if (number % 2 === 0) {
-      number = number + value;
-      newArray.push(number);
-    } else if (number % 2 !== 0) {
-      newArray.push(number);
-    }
-  });
-  return newArray;
-}
-console.log(changeEven([1, 2, 3, 4, 5], 10));
+// function changeEven(numbers, value) {
+//   const newArray = [];
+//   numbers.forEach((number) => {
+//     if (number % 2 === 0) {
+//       number = number + value;
+//       newArray.push(number);
+//     } else if (number % 2 !== 0) {
+//       newArray.push(number);
+//     }
+//   });
+//   return newArray;
+// }
+// console.log(changeEven([1, 2, 3, 4, 5], 10));
 
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
+// * ======================== 10 ===========================
+
+// const planets = ['Земля', 'Марс', 'Венера', 'Юпитер'];
+// const planetsLengths = planets.map((planet) => planet.length);
+
+// * ======================== 11 ===========================
+
+// const books = [
+//   { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+//   { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+//   { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+//   { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+//   { title: 'Враг Божий', author: 'Бернард Корнуэлл', rating: 8.67 },
+// ];
+
+// const titles = books.map((book) => book.title);
+
+// * ======================== 12 ===========================
+
+// const books = [
+//   {
+//     title: 'Последнее королевство',
+//     author: 'Бернард Корнуэлл',
+//     genres: ['приключения', 'историческое'],
+//   },
+//   {
+//     title: 'На берегу спокойных вод',
+//     author: 'Роберт Шекли',
+//     genres: ['фантастика'],
+//   },
+//   {
+//     title: 'Красна как кровь',
+//     author: 'Ли Танит',
+//     genres: ['ужасы', 'мистика'],
+//   },
+// ];
+
+// const genres = books.flatMap((book) => book.genres);
+
+// * ======================== 13 ===========================
+
+// const getUserNames = (users) => {
+//   return users.map((user) => user.name);
+// };
+
+// * ======================== 14 ===========================
+
+// const getUserEmails = (users) => {
+//   return users.map((user) => user.email);
+// };
+
+// * ======================== 15 ===========================
+
+// const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+
+// const evenNumbers = numbers.filter((number) => number % 2 === 0);
+// const oddNumbers = numbers.filter((number) => number % 2 !== 0);
+
+// * ======================== 16 ===========================
+
+// const books = [
+//   {
+//     title: 'Последнее королевство',
+//     author: 'Бернард Корнуэлл',
+//     genres: ['приключения', 'историческое'],
+//   },
+//   {
+//     title: 'На берегу спокойных вод',
+//     author: 'Роберт Шекли',
+//     genres: ['фантастика', 'мистика'],
+//   },
+//   {
+//     title: 'Красна как кровь',
+//     author: 'Ли Танит',
+//     genres: ['ужасы', 'мистика', 'приключения'],
+//   },
+// ];
+
+// const allGenres = books.flatMap((book) => book.genres);
+// const uniqueGenres = allGenres.filter(
+//   (genre, index, array) => array.indexOf(genre) === index
+// );
+
+// * ======================== 17 ===========================
+
+// const books = [
+//   { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+//   { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+//   { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+//   { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+//   { title: 'Враг Божий', author: 'Бернард Корнуэлл', rating: 8.67 },
+// ];
+
+// const MIN_RATING = 8;
+// const AUTHOR = 'Бернард Корнуэлл';
+
+// const topRatedBooks = books.filter((book) => book.rating >= MIN_RATING);
+// const booksByAuthor = books.filter((book) => book.author === AUTHOR);
+
+// * ======================== 18 ===========================
+
+// const getUsersWithEyeColor = (users, color) => {
+//   return users.filter((user) => user.eyeColor === color);
+// };
+
+// * ======================== 19 ===========================
+
+// const getUsersWithAge = (users, minAge, maxAge) => {
+//   return users.filter((user) => user.age >= minAge && user.age <= maxAge);
+// };
+
+// * ======================== 20 ===========================
+
+// const getUsersWithFriend = (users, friendName) => {
+//   return users.filter((user) => user.friends.includes(friendName));
+// };
+
+// * ======================== 21 ===========================
+
+// const getFriends = (users) => {
+//   const allFriends = users.flatMap((user) => user.friends);
+//   return allFriends.filter(
+//     (friend, index, array) => array.indexOf(friend) === index
+//   );
+// };
+
+// * ======================== 22 ===========================
+
+// const getActiveUsers = (users) => {
+//   return users.filter((user) => user.isActive);
+// };
+
+// * ======================== 23 ===========================
+
+// const getInactiveUsers = (users) => {
+//   return users.filter((user) => !user.isActive);
+// };
+
 // * ======================== 1 ===========================
 // * ======================== 1 ===========================
 // * ======================== 1 ===========================
