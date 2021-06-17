@@ -515,15 +515,189 @@ console.log(onlineAndSorted);
 //   return users.filter((user) => !user.isActive);
 // };
 
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
-// * ======================== 1 ===========================
+// * ======================== 24 ===========================
+
+// const books = [
+//   { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+//   { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+//   { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+//   { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+// ];
+// const BOOK_TITLE = 'Сон смешного человека';
+// const AUTHOR = 'Роберт Шекли';
+
+// const bookWithTitle = books.find((book) => book.title === BOOK_TITLE);
+// const bookByAuthor = books.find((book) => book.author === AUTHOR);
+
+// * ======================== 25 ===========================
+
+// const getUserWithEmail = (users, email) => {
+//   return users.find((user) => user.email === email);
+// };
+
+// * ======================== 26 ===========================
+
+// const firstArray = [26, 94, 36, 18];
+// const secondArray = [17, 61, 23];
+// const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+// const eachElementInFirstIsEven = firstArray.every((value) => value % 2 === 0);
+// const eachElementInFirstIsOdd = firstArray.every((value) => value % 2 !== 0);
+
+// const eachElementInSecondIsEven = secondArray.every((value) => value % 2 === 0);
+// const eachElementInSecondIsOdd = secondArray.every((value) => value % 2 !== 0);
+
+// const eachElementInThirdIsEven = thirdArray.every((value) => value % 2 === 0);
+// const eachElementInThirdIsOdd = thirdArray.every((value) => value % 2 !== 0);
+
+// * ======================== 27 ===========================
+
+// const isEveryUserActive = (users) => {
+//   return users.every((user) => user.isActive);
+// };
+
+// * ======================== 28 ===========================
+
+// const firstArray = [26, 94, 36, 18];
+// const secondArray = [17, 61, 23];
+// const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+
+// const anyElementInFirstIsEven = firstArray.some((value) => value % 2 === 0);
+// const anyElementInFirstIsOdd = firstArray.some((value) => value % 2 !== 0);
+
+// const anyElementInSecondIsEven = secondArray.some((value) => value % 2 === 0);
+// const anyElementInSecondIsOdd = secondArray.some((value) => value % 2 !== 0);
+
+// const anyElementInThirdIsEven = thirdArray.some((value) => value % 2 === 0);
+// const anyElementInThirdIsOdd = thirdArray.some((value) => value % 2 !== 0);
+
+// * ======================== 29 ===========================
+
+// const isAnyUserActive = (users) => {
+//   return users.some((user) => user.isActive);
+// };
+
+// * ======================== 30 ===========================
+
+// const players = {
+//   mango: 1270,
+//   poly: 468,
+//   ajax: 710,
+//   kiwi: 244,
+// };
+// const playtimes = Object.values(players); // [1270, 468, 710, 244]
+
+// const totalPlayTime = playtimes.reduce((acc, value) => {
+//   return acc + value;
+// }, 0);
+
+// const averagePlayTime = totalPlayTime / playtimes.length;
+
+// * ======================== 31 ===========================
+
+// const players = [
+//   { name: 'Манго', playtime: 1270, gamesPlayed: 4 },
+//   { name: 'Поли', playtime: 469, gamesPlayed: 2 },
+//   { name: 'Аякс', playtime: 690, gamesPlayed: 3 },
+//   { name: 'Киви', playtime: 241, gamesPlayed: 1 },
+// ];
+
+// const totalAveragePlaytimePerGame = players.reduce((total, player) => {
+//   return total + player.playtime / player.gamesPlayed;
+// }, 0);
+// * ======================== 32 ===========================
+
+// const calculateTotalBalance = (users) => {
+//   return users.reduce((total, user) => total + user.balance, 0);
+// };
+
+// * ======================== 33 ===========================
+
+// const getTotalFriendCount = (users) => {
+//   return users.reduce((total, user) => total + user.friends.length, 0);
+// };
+
+// * ======================== 34 ===========================
+
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+// const authors = [
+//   'Ли Танит',
+//   'Бернард Корнуэлл',
+//   'Роберт Шекли',
+//   'Федор Достоевский',
+// ];
+
+// const ascendingReleaseDates = [...releaseDates].sort();
+
+// const alphabeticalAuthors = [...authors].sort();
+
+// * ======================== 35 ===========================
+
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+
+// const ascendingReleaseDates = [...releaseDates].sort(
+//   (curEl, nextEl) => curEl - nextEl
+// );
+
+// const descendingReleaseDates = [...releaseDates].sort(
+//   (curEl, nextEl) => nextEl - curEl
+// );
+
+// * ======================== 36 ===========================
+
+// const authors = [
+//   'Ли Танит',
+//   'Бернард Корнуэлл',
+//   'Роберт Шекли',
+//   'Федор Достоевский',
+//   'Говард Лавкрафт',
+// ];
+
+// const authorsInAlphabetOrder = [...authors].sort((a, b) => a.localeCompare(b));
+
+// const authorsInReversedOrder = [...authors].sort((a, b) => b.localeCompare(a));
+
+// * ======================== 37 ===========================
+
+// const books = [
+//   { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+//   { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+//   { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+//   { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+//   { title: 'Враг Божий', author: 'Бернард Корнуэлл', rating: 8.67 },
+// ];
+
+// const sortedByAuthorName = [...books].sort((a, b) =>
+//   a.author.localeCompare(b.author)
+// );
+
+// const sortedByReversedAuthorName = [...books].sort((a, b) =>
+//   b.author.localeCompare(a.author)
+// );
+
+// const sortedByAscendingRating = [...books].sort((a, b) => a.rating - b.rating);
+
+// const sortedByDescentingRating = [...books].sort((a, b) => b.rating - a.rating);
+
+// * ======================== 38 ===========================
+
+// const sortByAscendingBalance = (users) => {
+//   return [...users].sort((a, b) => a.balance - b.balance);
+// };
+
+// * ======================== 39 ===========================
+
+// const sortByDescendingFriendCount = (users) => {
+//   return [...users].sort((a, b) => b.friends.length - a.friends.length);
+// };
+
+// * ======================== 40 ===========================
+
+// const sortByName = (users) => {
+//   return [...users].sort((a, b) => a.name.localeCompare(b.name));
+// };
+
+// * ======================== 41 ===========================
+// * ======================== 42 ===========================
+// * ======================== 43 ===========================
+// * ======================== 44 ===========================
