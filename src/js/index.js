@@ -886,7 +886,7 @@ const getTotalBalanceByGender = (users, gender) => {
 
 // ? ---------------- chaining for unique ------------------
 
-const uniqueSortedCourses = students
-  .flatMap((student) => student.courses)
-  .filter((course, index, array) => array.indexOf(course) === index)
-  .sort((a, b) => a.localeCompare(b));
+// const uniqueSortedCourses = students
+//   .flatMap((student) => student.courses)
+//   .filter((course, index, array) => array.indexOf(course) === index)
+//   .sort((a, b) => a.localeCompare(b));
