@@ -185,7 +185,7 @@ const users = [
     friends: ['Jacklyn Lucas', 'Linda Chapman'],
     isActive: false,
     balance: 1498,
-    skills: ['non', 'amet', 'ipsum'],
+    skills: ['Jacklyn Lucas', 'Linda Chapman'],
     gender: 'male',
     age: 38,
   },
@@ -203,3 +203,4 @@ const users = [
   },
 ];
 export default users;
+console.log(this);

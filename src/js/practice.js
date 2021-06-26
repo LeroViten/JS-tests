@@ -50,7 +50,7 @@ import userArr from './index.js';
 // const getSortedUniqueSkills = (users) =>
 //   users
 //     .flatMap(({ skills }) => skills)
-//     .filter((skill, index, arr) => arr.indexOf(skill) == index)
+//     .filter((skill, index, arr) => arr.indexOf(skill) === index)
 //     .sort();
 
 // console.log(getSortedUniqueSkills(userArr));
