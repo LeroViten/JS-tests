@@ -1,5 +1,4 @@
-'use strict';
-// Enter your code below:
+import products from './data/products.js';
 
 // * ======================== 1 ===========================
 
@@ -65,14 +64,83 @@ const colorPickerOptions = [
 
 const colorPickerContainerEl = document.querySelector('.js-color-picker');
 
-const elements = colorPickerOptions.map((option) => {
-  const buttonEl = document.createElement('button');
-  buttonEl.type = 'button';
-  buttonEl.classList.add('color-picker__btn');
-  buttonEl.textContent = option.label;
-  buttonEl.style.backgroundColor = option.color;
+// const elements = colorPickerOptions.map((option) => {
+//   const buttonEl = document.createElement('button');
+//   buttonEl.type = 'button';
+//   buttonEl.classList.add('color-picker__btn');
+//   buttonEl.textContent = option.label;
+//   buttonEl.style.backgroundColor = option.color;
 
-  return buttonEl;
-});
+//   return buttonEl;
+// });
 
+// colorPickerContainerEl.append(...elements);
+
+//* making function to handle this task continuously:
+
+const createColorPickerOptions = (options) => {
+  return options.map((option) => {
+    const buttonEl = document.createElement('button');
+    buttonEl.type = 'button';
+    buttonEl.classList.add('color-picker__btn');
+    buttonEl.textContent = option.label;
+    buttonEl.style.backgroundColor = option.color;
+
+    return buttonEl;
+  });
+};
+
+const elements = createColorPickerOptions(colorPickerOptions);
 colorPickerContainerEl.append(...elements);
+
+//? ------------ product collection ----------------
+
+// const product = {
+//   name: 'Laptop',
+//   description:
+//     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam inventore illum molestiae quod eum quia, consequatur animi reprehenderit. Amet, quod?',
+//   price: 2500,
+//   available: true,
+//   onSale: true,
+// };
+
+{
+  /* <article class="product">
+  <h2 class="product__name">Name</h2>
+  <p class="product__descr">Description</p>
+  <p class="product__price">Price</p>
+</article>; */
+}
+
+// console.log(productEl);
+
+const productsContainerEl = document.querySelector('.js-products');
+
+const makeProductCard = ({ name, description, price }) => {
+  const productEl = document.createElement('article');
+  productEl.classList.add('product');
+
+  const productNameEl = document.createElement('h2');
+  productNameEl.textContent = name;
+  productNameEl.classList.add('product__name');
+
+  const productDescrEl = document.createElement('p');
+  productDescrEl.textContent = description;
+  productDescrEl.classList.add('product__descr');
+
+  const productPriceEl = document.createElement('p');
+  productPriceEl.textContent = `Price: ${price}`;
+  productPriceEl.classList.add('product__price');
+
+  productEl.append(productNameEl, productDescrEl, productPriceEl);
+
+  return productEl;
+};
+// console.log(makeProductCard(products[1]));
+// console.log(makeProductCard(products[0]));
+// console.log(makeProductCard(products[3]));
+// console.log(makeProductCard(products[2]));
+
+const elements2 = products.map(makeProductCard);
+console.log(elements2);
+productsContainerEl.append(...elements2);

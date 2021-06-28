@@ -162,3 +162,8 @@ textarea {
   filter: brightness(70%);
   transform: scale(0.9);
 }
+
+.products {
+  margin-top: 20px;
+  border-top: dashed #910a56;
+}
