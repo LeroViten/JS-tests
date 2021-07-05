@@ -124,3 +124,32 @@ textarea {
 .site-nav__link:focus {
   color: #910a56;
 }
+
+.js-container {
+  margin-top: 20px;
+  border: 2px dashed tomato;
+}
+
+.js-btn {
+  cursor: pointer;
+}
+
+.tags {
+  margin-top: 20px;
+  border-top: 2px dashed tomato;
+}
+
+.tags__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tags__btn {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.tags__btn--active {
+  color: #fff;
+  background-color: var(--secondary-color);
+}

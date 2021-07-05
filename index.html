@@ -18,6 +18,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/css/colorpicker.css" />
     <title>Document</title>
     <link rel="icon" type="image/x-icon" href="./src/img/favicon.ico" />
   </head>
@@ -25,7 +26,7 @@
     <section class="base">
       <div class="container">
         <h1>Welcome to the Dark Side!</h1>
-        <button type="button" class="project-btn">
+        <button type="button" class="project-btn js-add-btn">
           Take me there!
           <svg class="project-bnt__icon" width="15" height="15">
             <use
@@ -45,6 +46,58 @@
             <a class="site-nav__link link" href="#">Contacts</a>
           </li>
         </ul>
+        <div class="container js-container">
+          <button class="js-btn" type="button">Button 1</button>
+          <button class="js-btn" type="button">Button 2</button>
+          <button class="js-btn" type="button">Button 3</button>
+          <button class="js-btn" type="button">Button 4</button>
+          <button class="js-btn" type="button">Button 5</button>
+        </div>
+        <div class="tags js-tags">
+          <ul class="tags__list list">
+            <li class="tags__item">
+              <button type="button" class="tags__btn" data-value="javascript">
+                #javascript
+              </button>
+            </li>
+            <li class="tags__item">
+              <button type="button" class="tags__btn" data-value="npm">
+                #npm
+              </button>
+            </li>
+            <li class="tags__item">
+              <button type="button" class="tags__btn" data-value="c++">
+                #c++
+              </button>
+            </li>
+            <li class="tags__item">
+              <button type="button" class="tags__btn" data-value="redux">
+                #redux
+              </button>
+            </li>
+            <li class="tags__item">
+              <button type="button" class="tags__btn" data-value="emmet">
+                #emmet
+              </button>
+            </li>
+            <li class="tags__item">
+              <button type="button" class="tags__btn" data-value="webpack">
+                #webpack
+              </button>
+            </li>
+            <li class="tags__item">
+              <button type="button" class="tags__btn" data-value="php">
+                #php
+              </button>
+            </li>
+            <li class="tags__item">
+              <button type="button" class="tags__btn" data-value="react">
+                #react
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="palette js-palette"></div>
       </div>
     </section>
     <script src="./src/js/index.js"></script>
