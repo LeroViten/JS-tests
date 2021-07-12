@@ -182,8 +182,18 @@ function onBackdropClick(event) {
 function onEscKeyPress(event) {
   const ESC_KEY_CODE = 'Escape';
   const isEscKey = event.code === ESC_KEY_CODE;
+  console.log(event);
 
   if (isEscKey) {
     onCloseModal();
   }
 }
+
+//? ===== ADD GLOBAL EVENT LISTENER FUNCTION ==========
+function addGlobalEventListener(type, selector, callback) {
+  document.addEventListener(type, (event) => {
+    if (event.target.matches(selector)) callback(event);
+  });
+}
+
+//* ================ practice webinar ====================
